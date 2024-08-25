@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" data-mdb-theme="dark" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!---
+    Author: Jing Yang
+    Date: May 29, 2024
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Spring Bookstore</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.0/mdb.min.css"
+    rel="stylesheet"
+     />
+  </head>
+  <body>
+    <!-- Start your project here-->
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark" style='background-color:#202124;'>
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button
+        data-mdb-collapse-init
+        class="navbar-toggler"
+        type="button"
+        data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navbar brand -->
+        <a class="navbar-brand mt-2 mt-lg-0" th:href="@{/}">
+  SpringBookStore
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/list}">Browse Books</a>
+        </li>
+      </ul>
+      <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
+  
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+
+  <div class='text-white' style='height: 85vh;background-color:#202124;display:flex;justify-content: center;align-items: center;' id='container'>
+
+    <div id="signin" style='margin:auto;width:18%;' >
+
+        <form id="sign_in" method="post" action="#" th:action="@{/authUser}">
+
+            <div th:if="${param.logout}" class="alert alert-success">
+                You are logged out!
+            </div>
+
+
+            <div th:if="${param.error}" class="alert alert-danger">
+                    Invalid username/password!
+            </div>
+
+            <table id="signinform" style='border-collapse:separate;border-spacing:10px;width:100%;'>
+                <tr>
+                    <td>
+                        <div class="form-outline" data-mdb-input-init>
+                            <input type="text" name="username" id="typeText" class="form-control" required="required"/>
+                            <label class="form-label" for="typeText">User name</label>
+                          </div>        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-outline" data-mdb-input-init>
+                            <input type="password" id="typePassword" name='password' class="form-control" required="required" />
+                            <label class="form-label" for="typePassword">Password</label>
+                          </div>
+                    </td>
+                        </tr>
+                <tr>
+                    <td align="right">
+                        <button type="submit" class="btn btn-success" data-mdb-ripple-init>Log In</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+
+ 
+  </div>
+    
+  <div th:replace="footer">footer</div>
+      
+    <!-- End your project here-->
+
+    <!-- MDB -->
+    <div th:replace="script">script</div>
+
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" data-mdb-theme="dark" xmlns:th="http://www.thymeleaf.org" 
+              xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+  <head>
+    <!---
+    Author: Jing Yang
+    Date: May 29, 2024
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Spring Bookstore</title>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.0/mdb.min.css"
+    rel="stylesheet"
+     />
+
+  </head>
+  <body>
+    <!-- Start your project here-->
+
+  <div th:replace="navbar">Navbar</div>
+
+  <div class='text-white' style='height: 85vh;background-color:#202124;text-align: center;display:flex;justify-content: center;align-items: center;' id='container'>
+    <div>
+    <h3>Welcome to</h3>
+    <h1 style='font-size:10vw'>Spring Bookstore</h1>
+    <br><br><br>
+    <h4>&quot;<i>Knowledge is the <span style="color: red;font-size: 2.5vw;">spring</span> of wisdom,</i></h4>
+    <h4><i>books are the treasury of knowledge.</i>&quot;</h4>
+    </div>
+  </div>  
+
+  <div th:replace="footer">footer</div>
+
+    <!-- End your project here-->
+
+    <!-- MDB -->
+
+  <div th:replace="script">script</div>
+
+  </body>
+</html>

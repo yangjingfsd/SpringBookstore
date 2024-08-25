@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" data-mdb-theme="dark" xmlns:th="http://www.thymeleaf.org" 
+              xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+  <head>
+    <!---
+    Author: Jing Yang
+    Date: May 29, 2024
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Spring Bookstore Manage System</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.0/mdb.min.css"
+    rel="stylesheet"
+     />
+  </head>
+  <body>
+    <!-- Start your project here-->
+
+  <div th:replace="navbar">Navbar</div>
+
+  <div class='text-white' style='height: 85vh;background-color:#202124;text-align: center;display:flex;justify-content: center;align-items: center;' id='container'>
+<div style="width:60%;">
+
+    <p class="h4 mb-4">Add (or update) book</p>
+
+    <hr>
+
+    <form th:action="@{/save}" th:object="${book}" method="POST" >
+
+        <input type="hidden" th:field="*{id}">
+
+<div class="d-flex align-items-center">
+        <div class="form-outline flex-shrink-1" data-mdb-input-init>
+            <input type="text" th:field="*{title}" id="titleText" class="form-control md-4"/>
+            <label class="form-label" for="titleText">Title</label>
+        </div>        
+        <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="alert alert-danger p-1 w-50" style="margin-bottom: -0.2rem;"></span>
+</div>
+        <br>
+<div class="d-flex align-items-center">
+        <div class="form-outline flex-shrink-1" data-mdb-input-init>
+            <input type="text" th:field="*{author}" id="authorText" class="form-control md-4"/>
+            <label class="form-label" for="authorText">Author</label>
+        </div>        
+        <span th:if="${#fields.hasErrors('author')}" th:errors="*{author}" class="alert alert-danger p-1 w-50" style="margin-bottom: -0.2rem;"></span>
+</div>
+        <br>
+<div class="d-flex align-items-center">
+  <div class="form-outline flex-shrink-1" data-mdb-input-init>
+            <input type="text" th:field="*{isbn}" id="isbnText" class="form-control md-4"/>
+            <label class="form-label" for="isbnText">ISBN</label>
+        </div>        
+        <span th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}" class="alert alert-danger p-1 w-50" style="margin-bottom: -0.2rem;"></span>
+</div>
+<br>
+<div class="d-flex align-items-center">
+  <div class="form-outline flex-shrink-1" data-mdb-input-init>
+            <input type="text" th:field="*{price}" id="priceText" class="form-control md-4"/>
+            <label class="form-label" for="priceText">Price</label>
+        </div>        
+        <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="alert alert-danger p-1 w-50" style="margin-bottom: -0.2rem;"></span>
+  </div>
+<br><br>
+
+        <button type="submit" class="btn btn-info col-2">Save</button>
+
+    </form>
+
+</div>
+  </div>  
+
+  <div th:replace="footer">footer</div>
+      
+    <!-- End your project here-->
+
+    <!-- MDB -->
+  <div th:replace="script">script</div>
+
+  </body>
+</html>
